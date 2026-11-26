@@ -1,0 +1,273 @@
+{
+ "hero": {
+  "src": "assets/images/20200916-142039-2000x1500.jpg",
+  "w": 1920,
+  "h": 1440,
+  "widths": [
+   800,
+   1280,
+   1920
+  ]
+ },
+ "celi": {
+  "src": "assets/images/seguma-atj-3968x2976.jpg",
+  "w": 1400,
+  "h": 1050,
+  "widths": [
+   640,
+   1000,
+   1400
+  ]
+ },
+ "melio": {
+  "src": "assets/images/skrunda-ms-645x483.jpg",
+  "w": 645,
+  "h": 483,
+  "widths": [
+   645
+  ]
+ },
+ "uzt": {
+  "src": "assets/images/uzturana-3968x2976.jpg",
+  "w": 1400,
+  "h": 1050,
+  "widths": [
+   640,
+   1000,
+   1400
+  ]
+ },
+ "p-kurz": {
+  "src": "assets/images/whatsapp-image-2020-10-23-at-16.43.51-882x662.jpg",
+  "w": 882,
+  "h": 662,
+  "widths": [
+   500,
+   882
+  ]
+ },
+ "p-lamb": {
+  "src": "assets/images/20200311-92834-882x662.jpg",
+  "w": 882,
+  "h": 662,
+  "widths": [
+   500,
+   882
+  ]
+ },
+ "p-vidus": {
+  "src": "assets/images/img-20191018-151340-882x662.jpg",
+  "w": 882,
+  "h": 662,
+  "widths": [
+   500,
+   882
+  ]
+ },
+ "hydrema": {
+  "src": "assets/images/hydrema-912d-41-876x588.jpg",
+  "w": 876,
+  "h": 588,
+  "widths": [
+   500,
+   876
+  ]
+ },
+ "fmx": {
+  "src": "assets/images/whatsapp-image-2021-02-01-at-17.13.12-882x1568.jpeg",
+  "w": 705,
+  "h": 1254,
+  "widths": [
+   500,
+   705
+  ]
+ },
+ "asc110": {
+  "src": "assets/images/5-ammann-asc110d-800x532.jpg",
+  "w": 800,
+  "h": 532,
+  "widths": [
+   500,
+   800
+  ]
+ },
+ "e215": {
+  "src": "assets/images/img-8965-1355x903.jpg",
+  "w": 1355,
+  "h": 903,
+  "widths": [
+   500,
+   1000,
+   1355
+  ]
+ },
+ "s-uzt": {
+  "src": "assets/images/20191030-122109-kopija-1329x997.jpg",
+  "w": 1329,
+  "h": 997,
+  "widths": [
+   640,
+   1329
+  ]
+ },
+ "g940": {
+  "src": "assets/images/img-20190401-104704-2774x2081.jpg",
+  "w": 1400,
+  "h": 1050,
+  "widths": [
+   640,
+   1400
+  ]
+ },
+ "s-brug": {
+  "src": "assets/images/whatsapp-image-2020-10-22-at-19.21.35-1329x748.jpg",
+  "w": 1329,
+  "h": 748,
+  "widths": [
+   640,
+   1329
+  ]
+ },
+ "s-seg": {
+  "src": "assets/images/seguma-atj-1329x997.jpg",
+  "w": 1329,
+  "h": 997,
+  "widths": [
+   640,
+   1329
+  ]
+ },
+ "thw10": {
+  "src": "assets/images/dsc02359-resize-533x400.jpg",
+  "w": 533,
+  "h": 400,
+  "widths": [
+   533
+  ]
+ },
+ "thw9": {
+  "src": "assets/images/140239770-5-882x662.jpg",
+  "w": 882,
+  "h": 662,
+  "widths": [
+   500,
+   882
+  ]
+ },
+ "asc130": {
+  "src": "assets/images/2222fffff-1024x768.jpg",
+  "w": 1024,
+  "h": 768,
+  "widths": [
+   500,
+   1024
+  ]
+ },
+ "s-hidro": {
+  "src": "assets/images/2222-645x430.jpg",
+  "w": 645,
+  "h": 430,
+  "widths": [
+   645
+  ]
+ },
+ "cx210": {
+  "src": "assets/images/case-cx210b-2-900x1600.jpg",
+  "w": 788,
+  "h": 1400,
+  "widths": [
+   500,
+   788
+  ]
+ },
+ "s-karj": {
+  "src": "assets/images/whatsapp-image-2021-02-10-at-17.40.59-1329x997.jpg",
+  "w": 1329,
+  "h": 997,
+  "widths": [
+   640,
+   1329
+  ]
+ },
+ "d-kurz": {
+  "src": "assets/images/whatsapp-image-2020-10-23-at-16.43.50-1076x808.jpg",
+  "w": 1076,
+  "h": 808,
+  "widths": [
+   640,
+   1076
+  ]
+ },
+ "d-lamb": {
+  "src": "assets/images/20200327-122159-1076x807.jpg",
+  "w": 1076,
+  "h": 807,
+  "widths": [
+   640,
+   1076
+  ]
+ },
+ "d-vidus": {
+  "src": "assets/images/img-20191018-150549-886x665.jpg",
+  "w": 886,
+  "h": 665,
+  "widths": [
+   500,
+   886
+  ]
+ },
+ "s-nes": {
+  "src": "assets/images/img-20150903-wa0003-1329x752.jpg",
+  "w": 1329,
+  "h": 752,
+  "widths": [
+   640,
+   1329
+  ]
+ },
+ "man400": {
+  "src": "assets/images/ffff-924x693.jpeg",
+  "w": 739,
+  "h": 554,
+  "widths": [
+   500,
+   739
+  ]
+ },
+ "man360": {
+  "src": "assets/images/img-20170301-wa0000-924x693.jpg",
+  "w": 924,
+  "h": 693,
+  "widths": [
+   500,
+   924
+  ]
+ },
+ "t-damp": {
+  "src": "assets/images/mjaslapa-696x468.jpg",
+  "w": 696,
+  "h": 468,
+  "widths": [
+   500,
+   696
+  ]
+ },
+ "t-grei": {
+  "src": "assets/images/20171214-125809-696x392.jpg",
+  "w": 696,
+  "h": 392,
+  "widths": [
+   500,
+   696
+  ]
+ },
+ "treil": {
+  "src": "assets/images/whatsapp-image-2020-11-03-at-22.38.30-882x662.jpeg",
+  "w": 705,
+  "h": 529,
+  "widths": [
+   500,
+   705
+  ]
+ }
+}

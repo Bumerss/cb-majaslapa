@@ -1,0 +1,110 @@
+{
+ "Autocelu-uzturesana.html": {
+  "title": "Autoceļu uzturēšana | SIA Ceļu Būvnieks",
+  "desc": "Autoceļu uzturēšana visu gadu: grants segas atjaunošana, planēšana, caurteku un grāvju tīrīšana, ceļa zīmes, sniega tīrīšana un kaisīšana ziemā.",
+  "url": "https://celubuvnieks.lv/Autocelu-uzturesana.html"
+ },
+ "Autogreiders.html": {
+  "title": "Autogreidera noma – Volvo G940 | SIA Ceļu Būvnieks",
+  "desc": "Autogreidera Volvo G940 noma: darba svars 21,3 t, jauda 225 ZS. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Autogreiders.html"
+ },
+ "Brugesanas-darbi.html": {
+  "title": "Bruģēšanas darbi | SIA Ceļu Būvnieks",
+  "desc": "Bruģēšanas darbi ietvēm, piebraucamajiem ceļiem, stāvvietām, atpūtas zonām, administratīvajām un ražošanas teritorijām. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Brugesanas-darbi.html"
+ },
+ "Celu-seguma-atjaunosana.html": {
+  "title": "Ceļu seguma atjaunošana | SIA Ceļu Būvnieks",
+  "desc": "Ceļu seguma atjaunošana, kas ļauj autoceļam turpināt pildīt savu funkciju un nodrošina tā ilgmūžību. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Celu-seguma-atjaunosana.html"
+ },
+ "Damperi.html": {
+  "title": "Damperu noma – Hydrema 912D, 9–10 t | SIA Ceļu Būvnieks",
+  "desc": "Damperu noma: Hydrema 912D un Thwaites ar kravnesību 9–10 t. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Damperi.html"
+ },
+ "Grunts-veltni.html": {
+  "title": "Grunts veltņu noma – Ammann 12–13 t | SIA Ceļu Būvnieks",
+  "desc": "Grunts veltņu noma: Ammann ASC130 (13 t) un Ammann ASC110 (12 t). SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Grunts-veltni.html"
+ },
+ "Hidrotehnisko-buvju-buvnieciba.html": {
+  "title": "Hidrotehnisko būvju būvniecība | SIA Ceļu Būvnieks",
+  "desc": "Hidrotehnisko būvju būvniecība un rekonstrukcija, vides projekti, grāvju un dambju nostiprināšana, ugunsdzēsības baseinu un ūdens tilpņu izbūve.",
+  "url": "https://celubuvnieks.lv/Hidrotehnisko-buvju-buvnieciba.html"
+ },
+ "index.html": {
+  "title": "Ceļu būvniecība un uzturēšana Latvijā | SIA Ceļu Būvnieks",
+  "desc": "SIA “Ceļu Būvnieks” – ceļu būve Latvijā kopš 2007. gada: nesaistīto segumu ceļi, meliorācija, hidrotehniskās būves, autoceļu uzturēšana un tehnikas noma.",
+  "url": "https://celubuvnieks.lv/",
+  "ld": "{\"@context\":\"https://schema.org\",\"@type\":\"GeneralContractor\",\"name\":\"SIA Ceļu Būvnieks\",\"url\":\"https://celubuvnieks.lv/\",\"logo\":\"https://celubuvnieks.lv/assets/images/celu-buvnieks-rc-white-background-312x125.png\",\"image\":\"https://celubuvnieks.lv/assets/images/20200916-142039-2000x1500.jpg\",\"foundingDate\":\"2007\",\"email\":\"celubuvnieks@inbox.lv\",\"telephone\":[\"+37125668515\",\"+37126649955\"],\"identifier\":\"40003916711\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Ventspils iela 48a\",\"addressLocality\":\"Rīga\",\"postalCode\":\"LV-1002\",\"addressCountry\":\"LV\"},\"openingHours\":\"Mo-Fr 08:00-17:00\"}"
+ },
+ "Kapurkezu-ekskavatori.html": {
+  "title": "Kāpurķēžu ekskavatoru noma – 21–22 t | SIA Ceļu Būvnieks",
+  "desc": "Kāpurķēžu ekskavatoru noma: New Holland E215C (22,4 t) un CX210B (21,5 t). SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Kapurkezu-ekskavatori.html"
+ },
+ "Karjeru-izstrade.html": {
+  "title": "Karjeru izstrāde | SIA Ceļu Būvnieks",
+  "desc": "Grants un smilts karjeru izstrāde, sijāšana un drupināšana. Inertie materiāli nesaistītā seguma autoceļu būvniecībai un uzturēšanai.",
+  "url": "https://celubuvnieks.lv/Karjeru-izstrade.html"
+ },
+ "Kurzemnieku-cels.html": {
+  "title": "Kurzemnieku ceļš | SIA Ceļu Būvnieks",
+  "desc": "Meža autoceļa “Kurzemnieku ceļš” būve Priekules novadā AS “Latvijas valsts meži” vajadzībām, kopgarums 2,307 km. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Kurzemnieku-cels.html"
+ },
+ "Lambartes-purva-cels.html": {
+  "title": "Lambārtes purva ceļš | SIA Ceļu Būvnieks",
+  "desc": "Meža autoceļa “Lambārtes purva ceļš” būve Bauskas novadā AS “Latvijas valsts meži” vajadzībām, kopgarums 0,700 km. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Lambartes-purva-cels.html"
+ },
+ "Melioracijas-sistemu-buvnieciba.html": {
+  "title": "Meliorācijas sistēmu būvniecība | SIA Ceļu Būvnieks",
+  "desc": "Meliorācijas sistēmu būvniecība un atjaunošana meža un lauksaimniecības teritorijās: upju tīrīšana, caurtekas, drenāža un kolektoru izteku izbūve.",
+  "url": "https://celubuvnieks.lv/Melioracijas-sistemu-buvnieciba.html"
+ },
+ "Nesaistitu-mineralmaterialu-segumu-celu-buvnieciba.html": {
+  "title": "Nesaistītu minerālmateriālu segumu ceļu būvniecība | SIA Ceļu Būvnieks",
+  "desc": "Nesaistītu minerālmateriālu segumu ceļu būvniecība: uzbūvēti vairāk nekā 300 km meža autoceļu, zemes darbi un pilna cikla inerto materiālu sagatavošana.",
+  "url": "https://celubuvnieks.lv/Nesaistitu-mineralmaterialu-segumu-celu-buvnieciba.html"
+ },
+ "Pasizgazeji.html": {
+  "title": "Pašizgāzēju noma – Volvo, MAN, 17 m³ | SIA Ceļu Būvnieks",
+  "desc": "Pašizgāzēju noma: Volvo FMX 460, MAN TGS 35.400 un MAN TGS 35.360 ar 17 m³ kravas kasti. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Pasizgazeji.html"
+ },
+ "privacy.html": {
+  "title": "Sīkdatņu politika | SIA Ceļu Būvnieks",
+  "desc": "Kā SIA “Ceļu Būvnieks” tīmekļa vietne izmanto sīkdatnes un kādi trešo pušu pakalpojumi tajā ir iekļauti.",
+  "url": "https://celubuvnieks.lv/privacy.html",
+  "body": "<p>Sīkdatnes ir nelielas teksta datnes, ko tīmekļa vietne saglabā jūsu ierīcē.</p>\n            <h2 class=\"mbr-fonts-style mt-4 display-7\"><strong>Šīs vietnes sīkdatnes</strong></h2>\n            <p>Šī vietne pati izmanto vienu sīkdatni (<code>cookie_notice</code>), kas uz vienu gadu saglabā jūsu izvēli sīkdatņu paziņojumā. Reklāmas vai analītikas sīkdatnes šī vietne neizmanto.</p>\n            <h2 class=\"mbr-fonts-style mt-4 display-7\"><strong>Trešo pušu pakalpojumi</strong></h2>\n            <p>Kontaktu lapā var parādīt Google Maps karti. Tā tiek ielādēta tikai tad, ja piekrītat sīkdatnēm vai nospiežat pogu “Rādīt karti”. Tad Google var saņemt jūsu IP adresi un iestatīt savas sīkdatnes. Vairāk lasiet <a href=\"https://policies.google.com/privacy\" class=\"text-primary\" rel=\"noopener\">Google privātuma politikā</a>. Vietnes fonti tiek ielādēti no šī paša servera.</p>\n            <h2 class=\"mbr-fonts-style mt-4 display-7\"><strong>Sīkdatņu pārvaldība</strong></h2>\n            <p>Sīkdatnes varat dzēst vai bloķēt savas pārlūkprogrammas iestatījumos. Savu izvēli varat mainīt jebkurā laikā:</p>\n            <p><button type=\"button\" class=\"btn btn-primary display-4\" style=\"margin: 0;\" data-cookie-reset>Mainīt izvēli</button></p>\n            <h2 class=\"mbr-fonts-style mt-4 display-7\"><strong>Kontakti</strong></h2>\n            <p>SIA “Ceļu Būvnieks”, Ventspils iela 48a, Rīga, LV-1002<br><a href=\"mailto:celubuvnieks@inbox.lv\" class=\"text-primary\">celubuvnieks@inbox.lv</a></p>\n            <p>Atjaunināts: 2026. gada 4. novembrī.</p>\n        ",
+  "banner": "Google Maps karte tiek ielādēta tikai ar jūsu piekrišanu. Mēs saglabājam vienu sīkdatni ar jūsu izvēli. Vairāk lasiet mūsu <a href='privacy.html'>sīkdatņu politikā</a>."
+ },
+ "Transporta-un-tehnikas-nomas-pakalpojumi.html": {
+  "title": "Transporta un tehnikas nomas pakalpojumi | SIA Ceļu Būvnieks",
+  "desc": "Transporta un tehnikas noma: damperi, pašizgāzēji, grunts veltņi, kāpurķēžu ekskavatori un autogreiders. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Transporta-un-tehnikas-nomas-pakalpojumi.html"
+ },
+ "Treilera-pakalpojumi.html": {
+  "title": "Treilera pakalpojumi | SIA Ceļu Būvnieks",
+  "desc": "Treilera pakalpojumi kravām līdz 30 t: kravas platforma 9,24 m, platums 2,55 m ar paplašinājumiem 0,6 m. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Treilera-pakalpojumi.html"
+ },
+ "Vidus-cela-pagarinajums.html": {
+  "title": "Vidus ceļa pagarinājums | SIA Ceļu Būvnieks",
+  "desc": "Meža autoceļa “Vidus ceļa pagarinājums” būve Brocēnu novadā AS “Latvijas valsts meži” vajadzībām, kopgarums 1,689 km. SIA “Ceļu Būvnieks”.",
+  "url": "https://celubuvnieks.lv/Vidus-cela-pagarinajums.html"
+ },
+ "Projekti.html": {
+  "title": "Projekti | SIA Ceļu Būvnieks",
+  "desc": "SIA “Ceļu Būvnieks” projekti: meža autoceļi Priekules, Bauskas un Brocēnu novadā AS “Latvijas valsts meži” vajadzībām.",
+  "url": "https://celubuvnieks.lv/Projekti.html"
+ },
+ "Kontakti.html": {
+  "title": "Kontakti | SIA Ceļu Būvnieks",
+  "desc": "SIA “Ceļu Būvnieks” kontakti: tālrunis +371 25668515 un +371 26649955, e-pasts celubuvnieks@inbox.lv, Ventspils iela 48a, Rīga. Darba dienās 08:00–17:00.",
+  "url": "https://celubuvnieks.lv/Kontakti.html"
+ }
+}
