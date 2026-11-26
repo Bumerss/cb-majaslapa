@@ -40,8 +40,21 @@ const SERVICES = [
   ['Treilera-pakalpojumi.html', 'treil', 'Treilera pakalpojumi', 'Kravas līdz 30 t, platforma 9,24 m'],
   ['Transporta-un-tehnikas-nomas-pakalpojumi.html', 'noma', 'Transporta un tehnikas noma', 'Damperi, pašizgāzēji, veltņi, ekskavatori, autogreiders']
 ];
-const row = ([f, i, t, d]) => `<a class="more" href="${f}"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true">${ICON[i]}</svg><span class="more-t"><b>${t}</b><span>${d}</span></span>${arrow}</a>`;
+// Detailed colour icons (assets/icons/*.svg, made by ikonas.js) replace the line icons for these keys.
+const ICON_FILE = ['melio', 'uzt', 'brug'];
+const ico = i => ICON_FILE.includes(i) ? `<img class="ico ico-img" src="assets/icons/${i}.svg" alt="" width="96" height="96">` : `<svg class="ico" viewBox="0 0 48 48" aria-hidden="true">${ICON[i]}</svg>`;
+const row = ([f, i, t, d]) => `<a class="more" href="${f}">${ico(i)}<span class="more-t"><b>${t}</b><span>${d}</span></span>${arrow}</a>`;
 const rows = list => `<div class="rows">\n${list.map(row).join('\n')}\n</div>`;
+const tile = ([f, i, t, d]) => `<a class="tile" href="${f}">${ico(i)}<b>${t}</b><span>${d}</span></a>`;
+const QUICK = [['Nesaistitu-mineralmaterialu-segumu-celu-buvnieciba.html', 'celi', 'Ceļu būve'], ['Melioracijas-sistemu-buvnieciba.html', 'melio', 'Meliorācija'], ['Autocelu-uzturesana.html', 'uzt', 'Uzturēšana'], ['Brugesanas-darbi.html', 'brug', 'Bruģēšana'], ['Karjeru-izstrade.html', 'karj', 'Karjeri'], ['Transporta-un-tehnikas-nomas-pakalpojumi.html', 'noma', 'Tehnikas noma']];
+const TECH = [
+  ['Damperi.html', 'noma', 'Damperi', '9–10 t kravnesība'],
+  ['Pasizgazeji.html', 'noma', 'Pašizgāzēji', '17 m³ kravas kaste'],
+  ['Kapurkezu-ekskavatori.html', 'noma', 'Ekskavatori', 'Kāpurķēžu, 21–22 t'],
+  ['Grunts-veltni.html', 'noma', 'Grunts veltņi', '12–13 t'],
+  ['Autogreiders.html', 'noma', 'Autogreiders', 'Volvo G940, 225 ZS'],
+  ['Treilera-pakalpojumi.html', 'treil', 'Treileris', 'Kravas līdz 30 t']
+];
 
 function shell(file, body, o = {}) {
   const m = META[file], home = file === 'index.html';
@@ -139,14 +152,22 @@ PAGES['index.html'] = shell('index.html', `<section id="top">
 </div>
 </section>
 
+<nav class="quick wrap" aria-label="Ātrās saites">
+${QUICK.map(([f, i, t]) => `<a class="chip" href="${f}">${ico(i)}${t}</a>`).join('')}
+</nav>
+
 <section id="jomas" class="sec">
 <h2 class="h2 wrap sec-head">Darbības jomas</h2>
 ${block('celi', 'Ceļa seguma izbūve', 'Ceļu būvniecība', 'Nesaistītu minerālmateriālu segumi, zemes darbi, ierakumu un uzbērumu izbūve ar konstruktīvajām kārtām.', SERVICES[0][0], 'Par ceļu būvniecību')}
 ${block('melio', 'Meliorācijas sistēma no augšas', 'Meliorācija un hidrotehnika', 'Upju tīrīšana, caurtekas un drenāža. Grāvju un dambju nostiprināšana, ugunsdzēsības baseini.', SERVICES[1][0], 'Par meliorāciju', 1)}
 ${block('uzt', 'Autoceļa uzturēšanas darbi', 'Autoceļu uzturēšana', 'Planēšana, bedru labošana, caurteku un grāvju tīrīšana. Ziemā sniega tīrīšana un kaisīšana.', SERVICES[2][0], 'Par uzturēšanu')}
 <div class="wrap also">
-<div class="also-head"><h3 class="h3">Veicam arī</h3><p>Pavisam deviņas darbības jomas, no grants karjera līdz tehnikas nomai.</p></div>
-${rows(SERVICES.slice(3))}
+<div class="also-head"><h3 class="h3">Būvniecība</h3><p>Citi darbi, ko veicam pilnā ciklā.</p></div>
+<div class="tiles">${SERVICES.slice(3, 7).map(tile).join('')}</div>
+</div>
+<div class="wrap also">
+<div class="also-head"><h3 class="h3">Tehnika un transports</h3><div class="also-cta"><a class="tlink" href="Transporta-un-tehnikas-nomas-pakalpojumi.html">Visa tehnika ${arrow}</a><a class="btn btn-red" href="tel:+37125668515">Nomāt: +371 25668515</a></div></div>
+<div class="tiles">${TECH.map(tile).join('')}</div>
 </div>
 </section>
 
