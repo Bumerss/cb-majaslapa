@@ -41,18 +41,18 @@ const SERVICES = [
   ['Transporta-un-tehnikas-nomas-pakalpojumi.html', 'noma', 'Transporta un tehnikas noma', 'Damperi, pašizgāzēji, veltņi, ekskavatori, autogreiders']
 ];
 // Detailed colour icons (assets/icons/*.svg, made by ikonas.js) replace the line icons for these keys.
-const ICON_FILE = ['melio', 'uzt', 'brug'];
+const ICON_FILE = ['melio', 'uzt', 'brug', 'celi', 'karj', 'noma', 'hidro', 'damp', 'pasiz', 'eksk', 'veltn', 'greid', 'treil'];
 const ico = i => ICON_FILE.includes(i) ? `<img class="ico ico-img" src="assets/icons/${i}.svg" alt="" width="96" height="96">` : `<svg class="ico" viewBox="0 0 48 48" aria-hidden="true">${ICON[i]}</svg>`;
 const row = ([f, i, t, d]) => `<a class="more" href="${f}">${ico(i)}<span class="more-t"><b>${t}</b><span>${d}</span></span>${arrow}</a>`;
 const rows = list => `<div class="rows">\n${list.map(row).join('\n')}\n</div>`;
 const tile = ([f, i, t, d]) => `<a class="tile" href="${f}">${ico(i)}<b>${t}</b><span>${d}</span></a>`;
 const QUICK = [['Nesaistitu-mineralmaterialu-segumu-celu-buvnieciba.html', 'celi', 'Ceļu būve'], ['Melioracijas-sistemu-buvnieciba.html', 'melio', 'Meliorācija'], ['Autocelu-uzturesana.html', 'uzt', 'Uzturēšana'], ['Brugesanas-darbi.html', 'brug', 'Bruģēšana'], ['Karjeru-izstrade.html', 'karj', 'Karjeri'], ['Transporta-un-tehnikas-nomas-pakalpojumi.html', 'noma', 'Tehnikas noma']];
 const TECH = [
-  ['Damperi.html', 'noma', 'Damperi', '9–10 t kravnesība'],
-  ['Pasizgazeji.html', 'noma', 'Pašizgāzēji', '17 m³ kravas kaste'],
-  ['Kapurkezu-ekskavatori.html', 'noma', 'Ekskavatori', 'Kāpurķēžu, 21–22 t'],
-  ['Grunts-veltni.html', 'noma', 'Grunts veltņi', '12–13 t'],
-  ['Autogreiders.html', 'noma', 'Autogreiders', 'Volvo G940, 225 ZS'],
+  ['Damperi.html', 'damp', 'Damperi', '9–10 t kravnesība'],
+  ['Pasizgazeji.html', 'pasiz', 'Pašizgāzēji', '17 m³ kravas kaste'],
+  ['Kapurkezu-ekskavatori.html', 'eksk', 'Ekskavatori', 'Kāpurķēžu, 21–22 t'],
+  ['Grunts-veltni.html', 'veltn', 'Grunts veltņi', '12–13 t'],
+  ['Autogreiders.html', 'greid', 'Autogreiders', 'Volvo G940, 225 ZS'],
   ['Treilera-pakalpojumi.html', 'treil', 'Treileris', 'Kravas līdz 30 t']
 ];
 
