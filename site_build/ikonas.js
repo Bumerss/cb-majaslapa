@@ -417,19 +417,45 @@ const nomaC3 = nomaC + `
 const GL = `<path d="M4 84 H92" stroke="${INK}" stroke-width="2.6" stroke-opacity=".35" ${S}/>`;
 const tEksk = `<g transform="translate(6 -2)">${nomaA.split('<circle cx="80" cy="16"')[0]}</g>`;
 const tPasiz = GL + nomaB.slice(nomaB.indexOf('<path d="M12 44 Q22'));
-const tVeltn = GL + `<g transform="translate(-4 14) scale(1.08)">${celiA.slice(celiA.indexOf('<path d="M50 46 L58 32')).split('<path d="M89 58')[0]}</g>`;
+// Big lugged tyre: dark rubber, tread knobs, light rim
+const tyre = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${INK}"/><circle cx="${x}" cy="${y}" r="${f(r - 0.6)}" stroke="#fff" stroke-width="1.2" stroke-dasharray="1.6 2.2" stroke-opacity=".45"/><circle cx="${x}" cy="${y}" r="${f(r * 0.5)}" fill="#fff" stroke="${INK}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="${f(r * 0.2)}" fill="${INK}"/>`;
+// Single-drum soil roller (Ammann ASC 130 side view), drum at front = right
+const tVeltn = GL + `
+<path d="M21.5 53 V47.5" stroke="${INK}" stroke-width="2.4" ${S}/>
+<rect x="6" y="61" width="36" height="9" rx="2" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<path d="M8 66 Q8 58 12 56 Q18 53 31.5 52.5 V62 H8 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M12 59 H28" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
+<rect x="4.5" y="65" width="7" height="11" rx="1.5" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<path d="M31.5 61.5 V39 H55 L57.5 61.5 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<rect x="30" y="35.5" width="27" height="4" rx="1.5" fill="${R}"/>
+<path d="M34.5 42 H45 V58.5 H34.5 Z M47.5 42 H53.5 L55 58.5 H47.5 Z" fill="${W1}"/>
+<path d="M36 61.5 H52 V74 H36 Z" fill="${T1}" stroke="${R}" stroke-width="2.2" ${S}/>
+<path d="M39 66 H49 M39 70 H49" stroke="${INK}" stroke-width="1.6" stroke-opacity=".6" ${S}/>
+<rect x="50" y="66" width="8" height="7" rx="1.5" fill="${INK}"/>
+<circle cx="70" cy="71.3" r="12.7" fill="#fff" stroke="${INK}" stroke-width="2.6"/>
+<path d="M58.5 66 Q70 54 81.5 66" stroke="${INK}" stroke-width="1.4" stroke-opacity=".45" fill="none" ${S}/>
+<path d="M52.5 65.5 L89.5 67.5 Q91.5 68 91.5 70.5 V73.5 Q91.5 75 89.5 75.2 L53 78 Z" fill="${T2}" stroke="${R}" stroke-width="2.4" ${S}/>
+<circle cx="56.5" cy="71.8" r="1" fill="${R}"/><circle cx="62" cy="71.6" r="1" fill="${R}"/><circle cx="79" cy="71.4" r="1" fill="${R}"/><circle cx="85" cy="71.4" r="1" fill="${R}"/>
+<circle cx="70" cy="71.5" r="2.6" fill="${INK}"/>
+<rect x="85" y="63.5" width="5" height="4" rx="1" fill="#fff" stroke="${R}" stroke-width="1.8"/>
+${tyre(26, 72.2, 11.8)}`;
 const tGreid = uztB;
+// Articulated site dumper (Hydrema 912 side view), mirrored so cab = front = right
 const tDamp = GL + `
-<path d="M10 44 Q16 36 26 40 Q34 34 42 44 Z" fill="${SOIL2}" stroke="${INK}" stroke-width="2" ${S}/>${dots(16, 38, 40, 42, 5, 1, INK, 0.5)}
-<path d="M8 44 H44 L42 62 L20 64 Q8 58 8 44 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
-<path d="M12 51 H42 M15 57 H41" stroke="${R}" stroke-width="1.4" stroke-opacity=".5"/>
-<rect x="64" y="48" width="24" height="15" rx="3" fill="#fff" stroke="${R}" stroke-width="2.6"/>
-<path d="M68 53 H84 M68 57 H84" stroke="${INK}" stroke-width="1.6" stroke-opacity=".5" ${S}/>
-<path d="M50 62 V28 M70 48 V28" stroke="${R}" stroke-width="3.5" ${S}/>
-<rect x="46" y="24" width="28" height="5" rx="2" fill="${R}"/>
-<path d="M56 56 V48 H62 M54 44 L50 50" stroke="${INK}" stroke-width="2.4" fill="none" ${S}/>
-<rect x="12" y="62" width="74" height="7" rx="3" fill="${INK}"/>
-${wheel(27, 74, 10)}${wheel(72, 74, 10)}`;
+<rect x="9" y="64" width="33" height="9.5" rx="2" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<path d="M36 72 L30 64" stroke="${INK}" stroke-width="2.6" ${S}/>
+<rect x="5" y="58" width="6" height="12" rx="1.5" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<rect x="40" y="64.5" width="7" height="9" rx="1.5" fill="${INK}"/>
+<path d="M46 72.5 V55.5 Q46 54.5 47 54.5 H68 V72.5 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M50 59 H64 M50 63 H64" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
+<path d="M60.5 45.6 L5.5 50.5 V56.5 L31.5 65.5 H39.5 L57.5 49 Z" fill="${T2}" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M58.5 47.6 L6 52.3" stroke="${R}" stroke-width="1.6" stroke-opacity=".6" ${S}/>
+<path d="M66 72.5 V63.5 H90 Q91.5 63.5 91.5 65 V71 Q91.5 72.5 90 72.5 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M68 69.5 V46 Q68 44.5 69.5 44.5 H86 Q88 44.5 88.3 46.5 L89.5 63.5 H68 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M70.5 47.5 H77.5 V61 H70.5 Z M79.5 47.5 H85.8 L86.8 61 H79.5 Z" fill="${W1}"/>
+<path d="M83 44.5 V42 Q83 40.5 84.5 40.5 Q86 40.5 86 42 V44.5" fill="${T2}" stroke="${R}" stroke-width="1.8" ${S}/>
+<path d="M86 73 V77 H89" stroke="${INK}" stroke-width="2" fill="none" ${S}/>
+${tyre(21, 74.6, 9.4)}${tyre(66.5, 74.6, 9.4)}`;
 const tTreil = GL + `
 <rect x="12" y="58" width="30" height="8" rx="4" fill="#fff" stroke="${INK}" stroke-width="2.2"/>
 <path d="M32 50 L44 37 L50 54" stroke="${R}" stroke-width="4" fill="none" ${S}/>
