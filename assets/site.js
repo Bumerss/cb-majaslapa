@@ -32,6 +32,46 @@
     if (loadButton) loadButton.addEventListener('click', loadMap);
   }
 
+  // Scroll reveal: blocks below the first screen fade and slide up when scrolled to, one after another.
+  // Blocks already on screen at load are left alone, so they don't move during the page fade.
+  if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var io = new IntersectionObserver(function (list) {
+      var n = 0;
+      list.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.style.setProperty('--d', Math.min(n++, 6) * 90 + 'ms');
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.chip, .tile, .card, .proj, .h2').forEach(function (el) {
+      if (el.classList.contains('rv') || el.getBoundingClientRect().top < innerHeight) return;
+      el.classList.add('sr');
+      io.observe(el);
+    });
+  }
+
+  // Desktop nav: underline slides from the current link to the clicked one, then the page changes
+  var nav = document.querySelector('nav.desk');
+  var cur = nav && nav.querySelector('.navl[aria-current]');
+  if (cur) {
+    var wide = matchMedia('(min-width: 901px)'), still = matchMedia('(prefers-reduced-motion: reduce)');
+    addEventListener('pageshow', function (e) {
+      if (e.persisted) { cur.style.removeProperty('--nu-x'); cur.style.removeProperty('--nu-s'); }
+    });
+    nav.querySelectorAll('.navl').forEach(function (l) {
+      l.addEventListener('click', function (e) {
+        if (l === cur || !wide.matches || still.matches || e.defaultPrevented ||
+            e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        var a = cur.getBoundingClientRect(), b = l.getBoundingClientRect();
+        cur.style.setProperty('--nu-x', (b.left - a.left) + 'px');
+        cur.style.setProperty('--nu-s', b.width / a.width);
+        setTimeout(function () { location.href = l.href; }, 260);
+      });
+    });
+  }
+
   // Phone menu closes after choosing a section
   var menu = document.querySelector('.mnav');
   if (menu) {
