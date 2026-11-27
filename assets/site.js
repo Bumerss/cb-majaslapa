@@ -40,6 +40,18 @@
     });
   }
 
+  // Tehnika page: tap a machine to show only its group, tap again to show all
+  var tf = document.querySelector("[data-tfilter]");
+  if (tf) {
+    tf.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-f]");
+      if (!b) return;
+      var on = b.getAttribute("aria-pressed") !== "true";
+      tf.querySelectorAll("[data-f]").forEach(function (x) { x.setAttribute("aria-pressed", String(on && x === b)); });
+      document.querySelectorAll("[data-g]").forEach(function (g) { g.hidden = on && g.getAttribute("data-g") !== b.getAttribute("data-f"); });
+    });
+  }
+
   // Cookie notice
   var reset = document.querySelector('[data-cookie-reset]');
   if (reset) {
