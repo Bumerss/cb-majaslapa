@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'public_html');
 const META = require('./meta.json'), IMG = require('./images.json');
-const VER = '20261127d', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
+const VER = '20261127g', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
 
 const nb = s => s.replace(/(\d) (km|m²|m³|t|m|gab\.|ZS|000|308)(?![\p{L}])/gu, '$1 $2');
 const enc = p => p.split('/').map(encodeURIComponent).join('/').replace(/%28/g, '(').replace(/%29/g, ')');

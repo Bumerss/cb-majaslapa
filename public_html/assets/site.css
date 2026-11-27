@@ -96,7 +96,9 @@ a, button, summary { touch-action: manipulation; }
 .navl { position: relative; padding: 10px 0; color: var(--text); text-decoration: none; }
 .navl:hover { color: var(--text); }
 .navl::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--red-btn); transform: scaleX(0); transform-origin: left; transition: transform 220ms var(--ease); }
-.navl:hover::after, .navl[aria-current]::after { transform: scaleX(1); }
+.navl:hover::after { transform: scaleX(1); }
+/* Current link underline slides to the clicked link before the page changes (site.js) */
+.navl[aria-current]::after { transform: translateX(var(--nu-x, 0)) scaleX(var(--nu-s, 1)); transition-duration: 260ms; transition-timing-function: cubic-bezier(.65, 0, .35, 1); }
 .call { min-height: 46px; padding: 0 22px; font-size: 15px; }
 .mnav { display: none; width: 100%; }
 .mnav summary { display: flex; align-items: center; min-height: 44px; font-weight: 700; cursor: pointer; list-style: none; }
@@ -277,6 +279,14 @@ a.card:hover { color: inherit; transform: translateY(-4px); }
 .cookie .btn { min-height: 46px; padding: 0 22px; }
 
 /* Motion */
+/* Calm fade between pages; header stays still (Chrome/Edge 126+, Safari 18.2+) */
+@view-transition { navigation: auto; }
+.top { view-transition-name: site-header; }
+::view-transition-old(root) { animation: vt-out 180ms ease-in both; }
+::view-transition-new(root) { animation: vt-in 320ms ease-out both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
   .rv { animation: rv 480ms var(--ease) both; }
@@ -287,6 +297,10 @@ a.card:hover { color: inherit; transform: translateY(-4px); }
     .enter { animation: enter linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
   }
 }
+/* Scroll reveal (site.js): only blocks that start below the first screen get .sr, then .in */
+.sr:not(.in) { opacity: 0; }
+.sr.in { animation: sr 800ms var(--ease) var(--d, 0ms) backwards; }
+@keyframes sr { from { opacity: 0; transform: translateY(36px) scale(.96); } to { opacity: 1; transform: none; } }
 @keyframes rv { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes settle { from { transform: scale(1.06); } to { transform: none; } }
 @keyframes enter { from { opacity: .2; transform: translateY(40px); } to { opacity: 1; transform: none; } }
