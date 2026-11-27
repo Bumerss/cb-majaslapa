@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'public_html');
 const META = require('./meta.json'), IMG = require('./images.json');
-const VER = '20261127g', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
+const VER = '20261127i', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
 
 const nb = s => s.replace(/(\d) (km|m²|m³|t|m|gab\.|ZS|000|308)(?![\p{L}])/gu, '$1 $2');
 const enc = p => p.split('/').map(encodeURIComponent).join('/').replace(/%28/g, '(').replace(/%29/g, ')');
@@ -101,7 +101,7 @@ ${ld.map(x => `<script type="application/ld+json">${x}</script>`).join('\n')}
 ${body}
 </main>
 <footer class="foot">
-<p><b>SIA “Ceļu Būvnieks”</b><br>Ventspils iela 48a, Rīga, LV-1002<br>Darba dienās 08:00–17:00</p>
+<p><b>SIA “Ceļu Būvnieks”</b><br>Ventspils iela 48a, Rīga, LV-1002<br>Darba dienās 08:00–18:00</p>
 <p><a href="tel:+37125668515">+371 25668515</a><br><a href="tel:+37126649955">+371 26649955</a><br><a href="mailto:celubuvnieks@inbox.lv">celubuvnieks@inbox.lv</a></p>
 <p>Reģ. nr. 40003916711<br>Būvkom. nr. 5722-R</p>
 <p>© 2026 SIA “Ceļu Būvnieks”<br>Visas tiesības aizsargātas<br><a href="privacy.html">Sīkdatņu politika</a></p>
@@ -286,7 +286,7 @@ PAGES['Kontakti.html'] = shell('Kontakti.html', `<section class="contact">
 </div>
 <div class="c-gray">
 <h2 class="addr">Ventspils iela 48a<br>Rīga, LV-1002</h2>
-<p>Darba dienās 08:00–17:00</p>
+<p>Darba dienās 08:00–18:00</p>
 <dl class="facts">
 <div><dt>Uzņēmums</dt><dd>SIA “Ceļu Būvnieks”</dd></div>
 <div><dt>Reģ. nr.</dt><dd>40003916711</dd></div>

@@ -51,6 +51,45 @@
     });
   }
 
+  // "Darbības jomas": calm scroll so the shortcut icons sit just under the header.
+  // From other pages: open the homepage at the top, then scroll (flag in sessionStorage).
+  var quick = document.querySelector('.quick'), jomas = document.getElementById('jomas');
+  function goJomas(now) {
+    var top = document.querySelector('.top');
+    var head = top && getComputedStyle(top).position === 'sticky' ? top.offsetHeight : 0;
+    var to = (quick || jomas).getBoundingClientRect().top + scrollY - head - (quick ? 12 - parseFloat(getComputedStyle(quick).paddingTop) : 0);
+    var from = scrollY, dist = to - from, t0 = null, dur = Math.min(1288, 552 + Math.abs(dist) * 0.46);
+    if (now || matchMedia('(prefers-reduced-motion: reduce)').matches) { scrollTo({ top: to, behavior: 'instant' }); return; }
+    function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+    function step(now) {
+      if (t0 === null) t0 = now;
+      var k = Math.min(1, (now - t0) / dur);
+      scrollTo({ top: from + dist * ease(k), behavior: 'instant' });
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.addEventListener('click', function (e) {
+    var l = e.target.closest('a[href$="#jomas"]');
+    if (!l || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (jomas) { goJomas(); history.replaceState(null, '', '#jomas'); return; }
+    try { sessionStorage.setItem('goJomas', '1'); } catch (x) {}
+    var url = l.href.split('#')[0], navCur = l.matches('nav.desk .navl') && document.querySelector('nav.desk .navl[aria-current]');
+    if (navCur && navCur !== l && matchMedia('(min-width: 901px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var a = navCur.getBoundingClientRect(), b = l.getBoundingClientRect();
+      navCur.style.setProperty('--nu-x', (b.left - a.left) + 'px');
+      navCur.style.setProperty('--nu-s', b.width / a.width);
+      setTimeout(function () { location.href = url; }, 260);
+    } else location.href = url;
+  });
+  if (jomas) {
+    var flag = null;
+    try { flag = sessionStorage.getItem('goJomas'); sessionStorage.removeItem('goJomas'); } catch (x) {}
+    if (flag) setTimeout(goJomas, 350);
+    else if (location.hash === '#jomas') addEventListener('load', function () { goJomas(true); });
+  }
+
   // Desktop nav: underline slides from the current link to the clicked one, then the page changes
   var nav = document.querySelector('nav.desk');
   var cur = nav && nav.querySelector('.navl[aria-current]');
@@ -61,7 +100,7 @@
     });
     nav.querySelectorAll('.navl').forEach(function (l) {
       l.addEventListener('click', function (e) {
-        if (l === cur || !wide.matches || still.matches || e.defaultPrevented ||
+        if (l === cur || /#jomas$/.test(l.getAttribute('href')) || !wide.matches || still.matches || e.defaultPrevented ||
             e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
         var a = cur.getBoundingClientRect(), b = l.getBoundingClientRect();

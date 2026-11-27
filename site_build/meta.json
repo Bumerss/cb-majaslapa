@@ -38,7 +38,7 @@
   "title": "Ceļu būvniecība un uzturēšana Latvijā | SIA Ceļu Būvnieks",
   "desc": "SIA “Ceļu Būvnieks” – ceļu būve Latvijā kopš 2007. gada: nesaistīto segumu ceļi, meliorācija, hidrotehniskās būves, autoceļu uzturēšana un tehnikas noma.",
   "url": "https://celubuvnieks.lv/",
-  "ld": "{\"@context\":\"https://schema.org\",\"@type\":\"GeneralContractor\",\"name\":\"SIA Ceļu Būvnieks\",\"url\":\"https://celubuvnieks.lv/\",\"logo\":\"https://celubuvnieks.lv/assets/images/celu-buvnieks-rc-white-background-312x125.png\",\"image\":\"https://celubuvnieks.lv/assets/images/20200916-142039-2000x1500.jpg\",\"foundingDate\":\"2007\",\"email\":\"celubuvnieks@inbox.lv\",\"telephone\":[\"+37125668515\",\"+37126649955\"],\"identifier\":\"40003916711\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Ventspils iela 48a\",\"addressLocality\":\"Rīga\",\"postalCode\":\"LV-1002\",\"addressCountry\":\"LV\"},\"openingHours\":\"Mo-Fr 08:00-17:00\"}"
+  "ld": "{\"@context\":\"https://schema.org\",\"@type\":\"GeneralContractor\",\"name\":\"SIA Ceļu Būvnieks\",\"url\":\"https://celubuvnieks.lv/\",\"logo\":\"https://celubuvnieks.lv/assets/images/celu-buvnieks-rc-white-background-312x125.png\",\"image\":\"https://celubuvnieks.lv/assets/images/20200916-142039-2000x1500.jpg\",\"foundingDate\":\"2007\",\"email\":\"celubuvnieks@inbox.lv\",\"telephone\":[\"+37125668515\",\"+37126649955\"],\"identifier\":\"40003916711\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Ventspils iela 48a\",\"addressLocality\":\"Rīga\",\"postalCode\":\"LV-1002\",\"addressCountry\":\"LV\"},\"openingHours\":\"Mo-Fr 08:00-18:00\"}"
  },
  "Kapurkezu-ekskavatori.html": {
   "title": "Kāpurķēžu ekskavatoru noma – 21–22 t | SIA Ceļu Būvnieks",
@@ -104,7 +104,7 @@
  },
  "Kontakti.html": {
   "title": "Kontakti | SIA Ceļu Būvnieks",
-  "desc": "SIA “Ceļu Būvnieks” kontakti: tālrunis +371 25668515 un +371 26649955, e-pasts celubuvnieks@inbox.lv, Ventspils iela 48a, Rīga. Darba dienās 08:00–17:00.",
+  "desc": "SIA “Ceļu Būvnieks” kontakti: tālrunis +371 25668515 un +371 26649955, e-pasts celubuvnieks@inbox.lv, Ventspils iela 48a, Rīga. Darba dienās 08:00–18:00.",
   "url": "https://celubuvnieks.lv/Kontakti.html"
  }
 }
