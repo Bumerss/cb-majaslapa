@@ -266,6 +266,29 @@ const wheel = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" str
 const dots = (x0, x1, y0, y1, step, r, col = INK, op = 0.55) => { let o = ''; let k = 0; for (let y = y0; y <= y1; y += step) { for (let x = x0 + (k % 2) * step / 2; x <= x1; x += step) o += `<circle cx="${f(x)}" cy="${f(y)}" r="${r}" fill="${col}" fill-opacity="${op}"/>`; k++; } return o; };
 const tree = (x, y, s = 1) => `<path d="M${x} ${f(y - 2 * s)} V${y}" stroke="${INK}" stroke-width="${f(2 * s)}" ${S}/><path d="M${x} ${f(y - 18 * s)} L${f(x + 6.5 * s)} ${f(y - 2 * s)} H${f(x - 6.5 * s)} Z" fill="${GR1}" stroke="${GR}" stroke-width="2" ${S}/>`;
 
+// Big lugged tyre: dark rubber, tread knobs, light rim
+const tyre = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${INK}"/><circle cx="${x}" cy="${y}" r="${f(r - 0.6)}" stroke="#fff" stroke-width="1.2" stroke-dasharray="1.6 2.2" stroke-opacity=".45"/><circle cx="${x}" cy="${y}" r="${f(r * 0.5)}" fill="#fff" stroke="${INK}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="${f(r * 0.2)}" fill="${INK}"/>`;
+// Single-drum soil roller (Ammann ASC 130 side view), drum at front = right
+const ROLLER = `
+<path d="M21.5 53 V47.5" stroke="${INK}" stroke-width="2.4" ${S}/>
+<rect x="6" y="61" width="36" height="9" rx="2" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<path d="M8 66 Q8 58 12 56 Q18 53 31.5 52.5 V62 H8 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M12 59 H28" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
+<rect x="4.5" y="65" width="7" height="11" rx="1.5" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
+<path d="M31.5 61.5 V39 H55 L57.5 61.5 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<rect x="30" y="35.5" width="27" height="4" rx="1.5" fill="${R}"/>
+<path d="M34.5 42 H45 V58.5 H34.5 Z M47.5 42 H53.5 L55 58.5 H47.5 Z" fill="${W1}"/>
+<path d="M36 61.5 H52 V74 H36 Z" fill="${T1}" stroke="${R}" stroke-width="2.2" ${S}/>
+<path d="M39 66 H49 M39 70 H49" stroke="${INK}" stroke-width="1.6" stroke-opacity=".6" ${S}/>
+<rect x="50" y="66" width="8" height="7" rx="1.5" fill="${INK}"/>
+<circle cx="70" cy="71.3" r="12.7" fill="#fff" stroke="${INK}" stroke-width="2.6"/>
+<path d="M58.5 66 Q70 54 81.5 66" stroke="${INK}" stroke-width="1.4" stroke-opacity=".45" fill="none" ${S}/>
+<path d="M52.5 65.5 L89.5 67.5 Q91.5 68 91.5 70.5 V73.5 Q91.5 75 89.5 75.2 L53 78 Z" fill="${T2}" stroke="${R}" stroke-width="2.4" ${S}/>
+<circle cx="56.5" cy="71.8" r="1" fill="${R}"/><circle cx="62" cy="71.6" r="1" fill="${R}"/><circle cx="79" cy="71.4" r="1" fill="${R}"/><circle cx="85" cy="71.4" r="1" fill="${R}"/>
+<circle cx="70" cy="71.5" r="2.6" fill="${INK}"/>
+<rect x="85" y="63.5" width="5" height="4" rx="1" fill="#fff" stroke="${R}" stroke-width="1.8"/>
+${tyre(26, 72.2, 11.8)}`;
+
 // ---------- Ceļu būve ----------
 const celiA = `
 <path d="M4 64 H92 V70 H4 Z" fill="${GRAV}"/>${dots(7, 90, 66.5, 68.5, 5, 0.9)}
@@ -273,17 +296,7 @@ const celiA = `
 <path d="M4 79 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${SOIL}"/>${dots(7, 90, 82, 87, 4, 0.6)}
 <path d="M4 70 H92 M4 79 H92" stroke="${R}" stroke-width="1.2" stroke-opacity=".5"/>
 <path d="M4 64 H92" stroke="${INK}" stroke-width="2.6" ${S}/>
-<path d="M50 46 L58 32 H82 Q88 32 88 40 V48" stroke="${R}" stroke-width="4" fill="none" ${S}/>
-<rect x="10" y="40" width="44" height="14" rx="3" fill="#fff" stroke="${R}" stroke-width="2.6"/>
-<rect x="16" y="16" width="20" height="24" rx="3" fill="#fff" stroke="${R}" stroke-width="2.6"/>
-<rect x="19" y="19" width="14" height="10" rx="1.5" fill="${W1}"/>
-<path d="M40 46 H50" stroke="${INK}" stroke-width="1.8" stroke-opacity=".5" ${S}/>
-<rect x="50" y="43" width="8" height="8" rx="1.5" fill="${INK}"/>
-${wheel(24, 55, 9)}
-<circle cx="72" cy="50" r="14" fill="#fff" stroke="${R}" stroke-width="2.6"/>
-<circle cx="72" cy="50" r="9" stroke="${R}" stroke-width="1.4" stroke-opacity=".5"/>
-<circle cx="72" cy="50" r="3" fill="${INK}"/>
-<path d="M89 58 q3 -3 0 -6 M92.5 60 q4.5 -5 0 -10" stroke="${INK}" stroke-width="1.8" fill="none" ${S}/>`;
+<g transform="translate(0 -20)">${ROLLER}</g>`;
 
 const celiB = `
 <path d="M4 64 H6 L9 72 L12 64 H84 L87 72 L90 64 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${DIRT}"/>
@@ -417,28 +430,7 @@ const nomaC3 = nomaC + `
 const GL = `<path d="M4 84 H92" stroke="${INK}" stroke-width="2.6" stroke-opacity=".35" ${S}/>`;
 const tEksk = `<g transform="translate(6 -2)">${nomaA.split('<circle cx="80" cy="16"')[0]}</g>`;
 const tPasiz = GL + nomaB.slice(nomaB.indexOf('<path d="M12 44 Q22'));
-// Big lugged tyre: dark rubber, tread knobs, light rim
-const tyre = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${INK}"/><circle cx="${x}" cy="${y}" r="${f(r - 0.6)}" stroke="#fff" stroke-width="1.2" stroke-dasharray="1.6 2.2" stroke-opacity=".45"/><circle cx="${x}" cy="${y}" r="${f(r * 0.5)}" fill="#fff" stroke="${INK}" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="${f(r * 0.2)}" fill="${INK}"/>`;
-// Single-drum soil roller (Ammann ASC 130 side view), drum at front = right
-const tVeltn = GL + `
-<path d="M21.5 53 V47.5" stroke="${INK}" stroke-width="2.4" ${S}/>
-<rect x="6" y="61" width="36" height="9" rx="2" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
-<path d="M8 66 Q8 58 12 56 Q18 53 31.5 52.5 V62 H8 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
-<path d="M12 59 H28" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
-<rect x="4.5" y="65" width="7" height="11" rx="1.5" fill="${T1}" stroke="${R}" stroke-width="2.2"/>
-<path d="M31.5 61.5 V39 H55 L57.5 61.5 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
-<rect x="30" y="35.5" width="27" height="4" rx="1.5" fill="${R}"/>
-<path d="M34.5 42 H45 V58.5 H34.5 Z M47.5 42 H53.5 L55 58.5 H47.5 Z" fill="${W1}"/>
-<path d="M36 61.5 H52 V74 H36 Z" fill="${T1}" stroke="${R}" stroke-width="2.2" ${S}/>
-<path d="M39 66 H49 M39 70 H49" stroke="${INK}" stroke-width="1.6" stroke-opacity=".6" ${S}/>
-<rect x="50" y="66" width="8" height="7" rx="1.5" fill="${INK}"/>
-<circle cx="70" cy="71.3" r="12.7" fill="#fff" stroke="${INK}" stroke-width="2.6"/>
-<path d="M58.5 66 Q70 54 81.5 66" stroke="${INK}" stroke-width="1.4" stroke-opacity=".45" fill="none" ${S}/>
-<path d="M52.5 65.5 L89.5 67.5 Q91.5 68 91.5 70.5 V73.5 Q91.5 75 89.5 75.2 L53 78 Z" fill="${T2}" stroke="${R}" stroke-width="2.4" ${S}/>
-<circle cx="56.5" cy="71.8" r="1" fill="${R}"/><circle cx="62" cy="71.6" r="1" fill="${R}"/><circle cx="79" cy="71.4" r="1" fill="${R}"/><circle cx="85" cy="71.4" r="1" fill="${R}"/>
-<circle cx="70" cy="71.5" r="2.6" fill="${INK}"/>
-<rect x="85" y="63.5" width="5" height="4" rx="1" fill="#fff" stroke="${R}" stroke-width="1.8"/>
-${tyre(26, 72.2, 11.8)}`;
+const tVeltn = GL + ROLLER;
 const tGreid = uztB;
 // Articulated site dumper (Hydrema 912 side view), mirrored so cab = front = right
 const tDamp = GL + `
@@ -502,9 +494,205 @@ const hidroC = `
 <path d="M4 38 H40 M4 88 H92" stroke="${INK}" stroke-width="2.6" ${S}/>
 <path d="M44 32 V20 M48 32 V20 M42 20 H50" stroke="${INK}" stroke-width="2.4" ${S}/>`;
 
+// ---------- Hidro D/E: culvert with fieldstone riprap + wooden rails (from site photo) ----------
+const STONE = ['#ece7df', '#ddd5c9', '#cfc5b8', '#ecd9d1', '#e4d3bd', '#d6d8d6'];
+const WOOD = '#e6c78f', WOOD2 = '#9a7440';
+const inPoly = (x, y, P) => { let c = false; for (let i = 0, j = P.length - 1; i < P.length; j = i++) { const [xi, yi] = P[i], [xj, yj] = P[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; };
+// Pack round fieldstones into polygon P; r grows from rTop (far) to rBot (near)
+function riprap(P, y0, y1, rTop, rBot, seed = 7) {
+  let s = seed; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  let o = '', y = y0, row = 0;
+  while (y <= y1) {
+    const r = rTop + (rBot - rTop) * (y - y0) / (y1 - y0), step = r * 1.9;
+    for (let x = (row % 2) * step / 2; x < 96; x += step) {
+      const jx = x + (rnd() - 0.5) * r * 0.5, jy = y + (rnd() - 0.5) * r * 0.4;
+      if (!inPoly(jx, jy, P)) continue;
+      const rx = r * (0.85 + rnd() * 0.3), ry = r * (0.7 + rnd() * 0.2);
+      o += `<ellipse cx="${f(jx)}" cy="${f(jy)}" rx="${f(rx)}" ry="${f(ry)}" fill="${STONE[Math.floor(rnd() * STONE.length)]}" stroke="${INK}" stroke-width="1" stroke-opacity=".7"/>`;
+    }
+    y += r * 1.45; row++;
+  }
+  return `<polygon points="${pts(P)}" fill="#bfb4a6"/>` + o;
+}
+const rails = (x0, x1, yTop, yBase, n) => {
+  let o = `<path d="M${x0} ${f(yTop + 2)} H${x1} M${x0} ${f(yTop + 2 + (yBase - yTop) * 0.45)} H${x1}" stroke="${WOOD2}" stroke-width="4.4" ${S}/><path d="M${x0} ${f(yTop + 2)} H${x1} M${x0} ${f(yTop + 2 + (yBase - yTop) * 0.45)} H${x1}" stroke="${WOOD}" stroke-width="2.4" ${S}/>`;
+  for (let i = 0; i < n; i++) { const x = x0 + (x1 - x0) * i / (n - 1); o += `<rect x="${f(x - 1.8)}" y="${yTop}" width="3.6" height="${f(yBase - yTop)}" rx="1" fill="${WOOD}" stroke="${WOOD2}" stroke-width="1.4"/>`; }
+  return o;
+};
+// Corrugated black pipe-arch opening, half filled with water
+const pipe = (cx, yB, w, h) => {
+  const a = w / 2, top = yB - h;
+  const arch = (k) => `M${f(cx - a * k)} ${yB} V${f(top + a * k * 0.85)} A${f(a * k)} ${f(a * k * 0.85)} 0 0 1 ${f(cx + a * k)} ${f(top + a * k * 0.85)} V${yB}`;
+  return `<path d="${arch(1.12)} Z" fill="#4a5259" stroke="${INK}" stroke-width="2.2" ${S}/>
+<path d="${arch(1)} Z" fill="#23272b"/>
+<path d="${arch(0.86)}" stroke="#4a5259" stroke-width="1.2" fill="none"/><path d="${arch(0.72)}" stroke="#4a5259" stroke-width="1" fill="none" stroke-opacity=".7"/>
+<rect x="${f(cx - a)}" y="${f(yB - h * 0.22)}" width="${f(w)}" height="${f(h * 0.22)}" fill="#8fb3cf"/>`;
+};
+function hidroD() {
+  return `
+<path d="M4 70 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${GR1}"/>
+<polygon points="4,70 22,40 74,40 92,70" fill="${SOIL2}"/>
+<rect x="20" y="37" width="56" height="4" rx="1.5" fill="${GRAV}"/>
+${rails(23, 73, 22, 39, 6)}
+${riprap([[14, 71], [27, 45], [69, 45], [82, 71]], 46, 70, 2.1, 3)}
+${pipe(48, 69, 24, 20)}
+<polygon points="35,70 61,70 72,90 24,90" fill="${W1}"/>
+${riprap([[22, 70], [35.5, 70], [25, 90.5], [7, 90.5]], 71.5, 89, 3, 4, 3)}${riprap([[60.5, 70], [74, 70], [89, 90.5], [71, 90.5]], 71.5, 89, 3, 4, 11)}
+<path d="M38 77 q3 -2 6 0 t6 0 t6 0 M34 84 q3 -2 6 0 t6 0 t6 0 t6 0" stroke="${W2}" stroke-width="1.8" fill="none" ${S}/>
+<path d="M4 70 L22 40 H74 L92 70" stroke="${INK}" stroke-width="2.4" fill="none" ${S}/>
+${tuft(8, 70)}${tuft(88, 70)}`;
+}
+function hidroE() {
+  return `
+<path d="M4 66 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${GR1}"/>
+<polygon points="4,66 14,30 82,30 92,66" fill="${SOIL2}"/>
+<rect x="12" y="27" width="72" height="4" rx="1.5" fill="${GRAV}"/>
+${rails(14, 82, 10, 29, 5)}
+${riprap([[6, 67], [17, 33], [79, 33], [90, 67]], 34, 66, 2.6, 3.4, 5)}
+${pipe(48, 66, 34, 28)}
+<polygon points="31,66 65,66 80,90 16,90" fill="${W1}"/>
+${riprap([[16, 66], [31.5, 66], [17, 90.5], [4, 90.5], [4, 74]], 68, 89, 3.6, 4.4, 9)}${riprap([[64.5, 66], [80, 66], [92, 74], [92, 90.5], [79, 90.5]], 68, 89, 3.6, 4.4, 13)}
+<path d="M36 74 q3 -2 6 0 t6 0 t6 0 t6 0 M30 83 q3 -2 6 0 t6 0 t6 0 t6 0 t6 0" stroke="${W2}" stroke-width="1.8" fill="none" ${S}/>
+<path d="M4 66 L14 30 H82 L92 66" stroke="${INK}" stroke-width="2.4" fill="none" ${S}/>`;
+}
+
+// Hidro F: same culvert seen at an angle (road runs up-right, ditch runs down-right toward viewer)
+function hidroF() {
+  const STONE_D = ['#d6d0c6', '#c6bdb0', '#b9ae9f', '#d4c1b8', '#cdbca6', '#bfc1bf'];
+  const s = 13, cx = 20, cy = 46, SLOPE = '#cfe3b8', GRASS = '#e1eed2', toe = `stroke="${GR}" stroke-width="1.8" stroke-opacity=".7"`;
+  const P = (x, y, z) => [cx + 0.866 * (x + y) * s, cy + 0.5 * (y - x) * s - z * s];
+  const poly = (a, fill, ex = '') => `<polygon points="${pts(a.map(p => P(...p)))}" fill="${fill}" ${ex}/>`;
+  const line = (a, b, st) => { const [x1, y1] = P(...a), [x2, y2] = P(...b); return `<path d="M${f(x1)} ${f(y1)} L${f(x2)} ${f(y2)}" ${st} ${S}/>`; };
+  const H = 1.4, X = 12, Y = 10, yS = 2.1, yD = 3.15, zb = -0.7, zw = zb + 0.1, rw = -2.4;
+  const faceZ = y => H - y * H / yS;
+  const ditchZ = x => { const a = Math.abs(x); return a >= 1.6 ? 0 : a <= 0.5 ? zb : zb + (a - 0.5) * (-zb) / 1.1; };
+  const terr = (x, y) => Math.max(faceZ(y), ditchZ(x));
+  // stones
+  let sd = 5; const rnd = () => (sd = (sd * 9301 + 49297) % 233280) / 233280;
+  const all = [];
+  for (let y = 0.35; y < Y; y += 0.26) for (let x = -3; x < 3; x += 0.3) {
+    const jx = x + (rnd() - 0.5) * 0.06 + (Math.round(y / 0.26) % 2) * 0.15, jy = y + (rnd() - 0.5) * 0.04, a = Math.abs(jx);
+    const onFace = jy <= yD + 0.15 && a < 0.9 + jy * 0.6 && !(a >= 1.55 && jy > yS - 0.1);
+    const onBank = jy > yS - 0.3 && a > 0.5 && a < 1.55;
+    const inPool = jx > 0 && jx < 0.8 && jy > 1.95 && jy < yD + 0.45;
+    const inPipe = a < 0.68 && jy > 1.9 && jy < 2.6 && terr(jx, jy) < 0.75;
+    const inWater = a < 0.5 && jy > yD - 0.3;
+    if ((onFace || onBank) && !inPipe && !inWater && !inPool) all.push([jx, jy, 0.17 + rnd() * 0.04, (jx > 0.5 && jy > yS ? STONE_D : STONE)[Math.floor(rnd() * STONE.length)]]);
+  }
+  const stoneSvg = list => list.sort((p, q) => (p[1] - p[0]) - (q[1] - q[0])).map(([x, y, r, c]) => {
+    const [sx, sy] = P(x, y, terr(x, y) + r * 0.35); const rx = r * s * 0.95;
+    return `<ellipse cx="${f(sx)}" cy="${f(sy)}" rx="${f(rx)}" ry="${f(rx * 0.7)}" fill="${c}" stroke="${INK}" stroke-width=".8" stroke-opacity=".55"/>`;
+  }).join('');
+  const back = all.filter(p => p[0] >= -0.9 && !(p[0] < -0.6 && p[1] > yS)), front = all.filter(p => !back.includes(p));
+  // pipe
+  const pr = 0.65, zc = zb + pr, yM = 2.3;
+  const circ = (y, r, n = 40) => Array.from({ length: n }, (_, i) => { const t = i / n * 2 * Math.PI; return [r * Math.cos(t), y, zc + r * Math.sin(t)]; });
+  let shell = ''; for (let y = 1.5; y < yM; y += 0.2) shell += poly(circ(y, pr * 1.1), '#4a5259');
+  const inner = circ(yM, pr, 64), wat = inner.filter(p => p[2] <= zw + 0.05);
+  wat.sort((p, q) => p[0] - q[0]);
+  const mouth = poly(circ(yM, pr * 1.12), '#4a5259', `stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"`) + poly(inner, '#23272b') +
+    `<polygon points="${pts(circ(yM, pr * 0.84).map(p => P(...p)))}" fill="none" stroke="#4a5259" stroke-width="1.1"/>` +
+    poly(wat.length > 2 ? wat : [], '#8fb3cf');
+  const rail = y => {
+    let o = '';
+    for (let x = -5; x <= 6; x += 1.1) o += line([x, y, H], [x, y, H + 0.95], `stroke="${WOOD2}" stroke-width="3.6"`) + line([x, y, H], [x, y, H + 0.95], `stroke="${WOOD}" stroke-width="1.8"`);
+    [0.5, 0.88].forEach(z => { o += line([-6, y, H + z], [7, y, H + z], `stroke="${WOOD2}" stroke-width="3.6"`) + line([-6, y, H + z], [7, y, H + z], `stroke="${WOOD}" stroke-width="1.8"`); });
+    return o;
+  };
+  const edge = `stroke="${INK}" stroke-width="2.2"`;
+  return `<clipPath id="hfc"><rect x="4" y="6" width="88" height="84" rx="8"/></clipPath><g clip-path="url(#hfc)">
+${poly([[-X, rw - 2.1, 0], [X, rw - 2.1, 0], [X, -Y, 0], [-X, -Y, 0]], GRASS)}
+${poly([[-X, rw, H], [X, rw, H], [X, rw - 2.1, 0], [-X, rw - 2.1, 0]], SLOPE)}
+${poly([[-X, rw, H], [X, rw, H], [X, 0, H], [-X, 0, H]], GRAV)}
+${rail(rw)}
+${poly([[-X, 0, H], [X, 0, H], [X, yS, 0], [1.6, yS, 0], [0.5, yD, zb], [-0.5, yD, zb], [-1.6, yS, 0], [-X, yS, 0]], SLOPE)}
+${poly([[1.6, yS, 0], [X, yS, 0], [X, Y, 0], [1.6, Y, 0]], GRASS)}
+${line([1.6, yS, 0], [X, yS, 0], toe)}
+${poly([[0.5, yD, zb], [1.6, yS, 0], [1.6, Y, 0], [0.5, Y, zb]], '#a99d8f')}
+${line([-X, 0, H], [X, 0, H], edge)}
+${stoneSvg(back)}
+${line([1.6, yS, 0], [1.6, Y, 0], toe)}
+${shell}
+${poly([[-0.66, yM, zw], [0.75, yM - 0.1, zw], [0.9, yM + 0.1, zw], [0.9, yD + 0.2, zw], [0.66, yD + 0.6, zw], [0.66, Y, zw], [-0.66, Y, zw]], W1)}
+${line([-0.1, 4.2, zw], [0.3, 4.2, zw], `stroke="${W2}" stroke-width="1.8"`)}${line([-0.3, 5.6, zw], [0.2, 5.6, zw], `stroke="${W2}" stroke-width="1.8"`)}
+${mouth}
+${poly([[-1.6, yS, 0], [-0.5, yD, zb], [-0.5, Y, zb], [-1.6, Y, 0]], '#a99d8f')}
+${stoneSvg(front)}
+${poly([[-X, yS, 0], [-1.6, yS, 0], [-1.6, Y, 0], [-X, Y, 0]], GRASS)}
+${line([-X, yS, 0], [-1.6, yS, 0], toe)}${line([-1.6, yS, 0], [-1.6, Y, 0], toe)}
+${rail(0)}
+</g>
+${tuft(12, 82)}${tuft(22, 88)}${tuft(84, 40)}`;
+}
+
+// ---------- Ceļu seguma atjaunošana (worn surface -> renewed) ----------
+const pothole = (x, y, rx, ry) => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#8a8f94" stroke="${INK}" stroke-width="1.6"/><ellipse cx="${x}" cy="${f(y + ry * 0.25)}" rx="${f(rx * 0.7)}" ry="${f(ry * 0.55)}" fill="${W1}"/>`;
+const crack = d => `<path d="${d}" stroke="${INK}" stroke-width="1.5" fill="none" stroke-opacity=".75" ${S}/>`;
+const arrowHead = (x, y, ang, sz = 6, col = R) => { const a = ang * Math.PI / 180, p = (da, l) => [x + Math.cos(a + da) * l, y + Math.sin(a + da) * l]; return `<polygon points="${pts([[x, y], p(Math.PI * 0.82, sz), p(-Math.PI * 0.82, sz)])}" fill="${col}"/>`; };
+// A: road in perspective, far half worn (potholes, cracks), near half fresh gravel; arrow worn -> new
+function segA() {
+  const yF = 22, yN = 88, L = y => 32 - (y - yF) * 26 / 66, Rr = y => 64 + (y - yF) * 26 / 66, yM = 50;
+  let o = `<path d="M4 28 Q4 22 10 22 H86 Q92 22 92 28 V82 Q92 88 86 88 H10 Q4 88 4 82 Z" fill="${GR1}"/>`;
+  o += `<polygon points="${pts([[L(yM), yM], [L(yF), yF], [Rr(yF), yF], [Rr(yM), yM]])}" fill="${ROAD2}"/>`;
+  o += pothole(42, 30, 4, 1.8) + pothole(56, 40, 6, 2.6) + pothole(38, 44, 3.5, 1.6);
+  o += crack('M46 24 l2 4 -2 3 3 4') + crack('M60 27 l-3 4 2 2') + crack('M47 47 l3 -3 2 1 2 -3');
+  o += `<polygon points="${pts([[L(yN), yN], [L(yM), yM], [Rr(yM), yM], [Rr(yN), yN]])}" fill="${GRAV}"/>`;
+  for (let i = 0; i < 7; i++) { const t = i / 6, y = yM + 4 + (yN - yM - 7) * t, r = 0.7 + 0.8 * t, n = 6 + i; for (let j = 0; j < n; j++) { const q = (j + 0.5 + (i % 2) * 0.3) / n; o += `<circle cx="${f(L(y) + q * (Rr(y) - L(y)))}" cy="${f(y)}" r="${f(r)}" fill="${INK}" fill-opacity=".4"/>`; } }
+  o += `<path d="M${f(L(yM))} ${yM} H${f(Rr(yM))}" stroke="${R}" stroke-width="2.4" stroke-dasharray="4 3" ${S}/>`;
+  o += `<path d="M${f(L(yN))} ${yN} L${L(yF)} ${yF} M${f(Rr(yN))} ${yN} L${Rr(yF)} ${yF}" stroke="${INK}" stroke-width="2.4" ${S}/>`;
+  o += `<path d="M80 32 Q90 46 80 62" stroke="${R}" stroke-width="3.4" fill="none" ${S}/>${arrowHead(79, 64, 118, 7)}`;
+  return o;
+}
+// B: cross-section: old worn layer with holes, new gravel layer laid on top (arrows down)
+const segB = `
+<path d="M4 64 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${SOIL}"/>${dots(7, 90, 80, 87, 4, 0.6)}
+<path d="M10 64 L14 56 H82 L86 64 Z" fill="${ROAD2}" stroke="${INK}" stroke-width="2.2" ${S}/>
+<path d="M26 56 q4 5 9 0 M56 56 q5 6 11 0" fill="${SOIL}" stroke="${INK}" stroke-width="1.8" ${S}/>
+${crack('M44 56 l2 3 -1 3 2 2')}${crack('M74 57 l-2 3 2 3')}
+<path d="M10 64 H86 M4 64 H10 M86 64 H92" stroke="${INK}" stroke-width="2.4" ${S}/>
+<path d="M14 46 L18 38 H78 L82 46 Z" fill="${GRAV}" stroke="${R}" stroke-width="2.6" ${S}/>${dots(21, 77, 41, 43.5, 4, 0.9, INK, 0.45)}
+<path d="M30 26 V34 M48 24 V34 M66 26 V34" stroke="${R}" stroke-width="3" ${S}/>${arrowHead(30, 36, 90, 6)}${arrowHead(48, 36, 90, 6)}${arrowHead(66, 36, 90, 6)}
+<path d="M18 50 V52 M48 50 V52 M78 50 V52" stroke="${INK}" stroke-width="1.6" stroke-opacity=".4" ${S}/>`;
+// C: road tile split worn | renewed, circular renew arrow around it
+function segC() {
+  let o = `<rect x="18" y="30" width="60" height="36" rx="4" fill="${GRAV}"/>`;
+  o += `<path d="M22 30 H48 V66 H22 Q18 66 18 62 V34 Q18 30 22 30 Z" fill="${ROAD2}"/>`;
+  o += pothole(30, 40, 5, 2.4) + pothole(38, 56, 6, 2.8) + crack('M24 50 l4 -2 2 2 4 -2') + crack('M42 34 l-2 4 3 3');
+  o += dots(52, 76, 34, 63, 4, 0.9, INK, 0.45);
+  o += `<path d="M48 30 V66" stroke="${R}" stroke-width="2.2" stroke-dasharray="3.5 3" ${S}/>`;
+  o += `<rect x="18" y="30" width="60" height="36" rx="4" stroke="${INK}" stroke-width="2.4"/>`;
+  o += `<path d="M14 22 A40 30 0 0 1 82 22" stroke="${R}" stroke-width="3.4" fill="none" ${S}/>${arrowHead(84, 25, 60, 7)}`;
+  o += `<path d="M82 74 A40 30 0 0 1 14 74" stroke="${R}" stroke-width="3.4" fill="none" ${S}/>${arrowHead(12, 71, 240, 7)}`;
+  return o;
+}
+
+// D: tracked paver (facing right) lays fresh gravel on a worn gravel road
+const segD = `
+<path d="M4 80 H92 V84 Q92 90 86 90 H10 Q4 90 4 84 Z" fill="${SOIL2}"/>${dots(8, 90, 84, 88, 5, 0.8, INK, 0.4)}
+<path d="M4 80 H92" stroke="${INK}" stroke-width="2.2" ${S}/>
+<path d="M72 80 q3 3 7 0 M83 80 q3.5 3.4 7 0" fill="${SOIL}" stroke="${INK}" stroke-width="1.6" ${S}/>
+<path d="M4 75 H14 L16 80 H4 Z" fill="${GRAV}" stroke="${R}" stroke-width="2" ${S}/>${dots(6, 13, 77.5, 77.5, 3.5, 0.7, INK, 0.45)}
+<path d="M47 44 V24" stroke="${INK}" stroke-width="2.4" ${S}/>
+<path d="M30 52 V28 M58 52 V30" stroke="${INK}" stroke-width="2.6" ${S}/>
+<path d="M24 28 L28 24 H62 L66 28 Z" fill="${T2}" stroke="${R}" stroke-width="2.4" ${S}/>
+<path d="M35 52 V40 Q35 37 38 37 H40 Q42 37 42 40 V47 H48 V52 Z" fill="#fff" stroke="${R}" stroke-width="2.2" ${S}/>
+<path d="M50 44 H57 V52 H50 Z" fill="${INK}"/>
+<path d="M28 52 H64 V70 H28 Z" fill="#fff" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M33 58 H58 M33 63 H58" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
+<path d="M12 64 H30 V75 H14 Q12 75 12 73 Z" fill="#fff" stroke="${R}" stroke-width="2.4" ${S}/>
+<path d="M15 69 H27" stroke="${INK}" stroke-width="1.6" stroke-opacity=".6" ${S}/>
+<path d="M62 57 Q70 48 79 50 Q87 52 91 56 Z" fill="${SOIL2}" stroke="${INK}" stroke-width="1.6" ${S}/>${dots(67, 87, 53, 55, 3.5, 0.8, INK, 0.5)}
+<path d="M62 68 V57 H92 L86 68 Z" fill="${T1}" stroke="${R}" stroke-width="2.6" ${S}/>
+<path d="M66 62.5 H87" stroke="${R}" stroke-width="1.4" stroke-opacity=".5" ${S}/>
+<path d="M84 68 V72" stroke="${INK}" stroke-width="2" ${S}/><circle cx="84" cy="73" r="2.4" fill="#fff" stroke="${INK}" stroke-width="1.8"/>
+<rect x="26" y="70" width="44" height="10" rx="5" fill="${INK}"/>
+<circle cx="31" cy="75" r="2.6" fill="#fff"/><circle cx="65" cy="75" r="2.6" fill="#fff"/>
+<circle cx="40" cy="75" r="1.5" fill="#fff" fill-opacity=".7"/><circle cx="48" cy="75" r="1.5" fill="#fff" fill-opacity=".7"/><circle cx="56" cy="75" r="1.5" fill="#fff" fill-opacity=".7"/>`;
+
 const groups = [
+  ['Seguma atjaunošana', [['A', 'Ceļš perspektīvā: tālāk nolietots (bedres, plaisas), tuvāk jauns grants segums', segA()], ['B', 'Griezums: vecā kārta ar bedrēm, virsū jauna kārta', segB], ['C', 'Ceļa gabals: puse nolietota, puse jauna, apkārt atjaunošanas bultas', segC()], ['D', 'Kāpurķēžu ieklājējs ieklāj jaunu grants kārtu uz nolietota ceļa', segD]]],
   ['Tehnika', [['Damperi', 'Celtnieku damperis ar kausu', tDamp], ['Pašizgāzēji', 'Pašizgāzējs ar kravu', tPasiz], ['Ekskavatori', 'Kāpurķēžu ekskavators', tEksk], ['Grunts veltņi', 'Vienvaļča grunts veltnis', tVeltn], ['Autogreiders', 'Autogreiders', tGreid], ['Treileris', 'Vilcējs ar zemo treileri un ekskavatoru', tTreil]]],
-  ['Hidrotehniskās būves', [['A', 'Caurteka zem ceļa uzbēruma', hidroA], ['B', 'Tilts pār upīti', hidroB], ['C', 'Aizsprosts / slūžas ar pārgāzni', hidroC]]],
+  ['Hidrotehniskās būves', [['A', 'Caurteka zem ceļa uzbēruma', hidroA], ['B', 'Tilts pār upīti', hidroB], ['C', 'Aizsprosts / slūžas ar pārgāzni', hidroC], ['D', 'Caurteka zem nobrauktuves, nogāzes ar laukakmeņiem, koka margas', hidroD()], ['E', 'Kā D, tuvāk: lielāka caurule un akmeņi', hidroE()], ['F', 'Caurteka no sāna leņķī: ceļš ar margām iet pa labi augšup, grāvis nāk uz skatītāju', hidroF()]]],
   ['Ceļu būve', [['A', 'Veltnis blīvē grants segumu, zem tā redzamas kārtas', celiA], ['B', 'Ceļa šķērsgriezums: kārtas, slīpums ūdens noteci, grāvji', celiB], ['C', 'Grants ceļš perspektīvā, priekšā redzamas kārtas', celiC()]]],
   ['Karjeri', [['A', 'Pašizgāzējs ar kravu pie karjera terasēm', karjA], ['B', 'Karjers griezumā: terases, ūdens apakšā', karjB], ['C', 'Materiāla kaudzes un konveijers', karjC]]],
   ['Tehnikas noma', [['A', 'Ekskavators + atslēga (noma)', nomaA], ['B', 'Pašizgāzējs + kalendārs (noma pa dienām)', nomaB], ['C', 'Treileris ar iekrāvēju (pārvadāšana + noma)', nomaC], ['C1', 'C + naudas zīmīte', nomaC1], ['C2', 'C + rokasspiediens (darījums)', nomaC2], ['C3', 'C + cenas birka ar €', nomaC3]]],
@@ -528,6 +716,6 @@ console.log('ok');
 const path = require('path');
 const DIR = path.join(__dirname, '..', 'ikonas');
 fs.mkdirSync(DIR, { recursive: true });
-const slug = { 'Tehnika': 'tehnika', 'Hidrotehniskās būves': 'hidro', 'Ceļu būve': 'celubuve', 'Karjeri': 'karjeri', 'Tehnikas noma': 'noma', 'Meliorācija': 'melioracija', 'Autoceļu uzturēšana': 'uzturesana', 'Bruģēšana': 'brugesana' };
+const slug = { 'Seguma atjaunošana': 'segums', 'Tehnika': 'tehnika', 'Hidrotehniskās būves': 'hidro', 'Ceļu būve': 'celubuve', 'Karjeri': 'karjeri', 'Tehnikas noma': 'noma', 'Meliorācija': 'melioracija', 'Autoceļu uzturēšana': 'uzturesana', 'Bruģēšana': 'brugesana' };
 groups.forEach(([t, list]) => list.forEach(([k, , b]) =>
   fs.writeFileSync(path.join(DIR, `${slug[t]}-${k.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "-").toLowerCase()}.svg`), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none">${b}</svg>\n`)));

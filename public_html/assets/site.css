@@ -157,6 +157,15 @@ a, button, summary { touch-action: manipulation; }
 .chip svg.ico { padding: 12px; box-sizing: border-box; stroke-width: 2.6; }
 .tile b { font-size: 22px; line-height: 1.2; font-weight: 700; font-stretch: 80%; color: var(--ink); }
 .tile span { font-size: 15px; line-height: 1.45; color: var(--muted); }
+/* Equipment filter tiles (Tehnika page): compact row, close together */
+.tfilter { grid-template-columns: repeat(6, 160px); gap: 12px; margin-top: 32px; }
+.tfilter .tile { align-items: center; text-align: center; gap: 4px; padding: 10px 6px 12px; border-radius: 14px; font: inherit; cursor: pointer; }
+.tfilter .tile .ico { width: 118px; height: 118px; padding: 10px; margin-bottom: 4px; border-radius: 16px; }
+.tfilter .tile b { font-size: 19px; }
+.tfilter .tile span { font-size: 13px; line-height: 1.3; }
+.tfilter .tile[aria-pressed="true"] { border-color: var(--red); box-shadow: inset 0 0 0 1px var(--red); }
+.tfilter .tile[aria-pressed="true"] b { color: var(--red); }
+@media (max-width: 1100px) { .tfilter { grid-template-columns: repeat(3, 160px); } }
 .also-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
 @media (max-width: 600px) {
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -166,6 +175,10 @@ a, button, summary { touch-action: manipulation; }
   .chip { font-size: 15px; padding: 12px 4px; }
   .chip .ico { width: 64px; height: 64px; }
   .tile .ico { width: 112px; height: 112px; }
+  .tfilter { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .tfilter .tile .ico { width: 88px; height: 88px; }
+  .tfilter .tile b { font-size: 15px; }
+  .tfilter .tile span { display: none; }
 }
 
 /* Projects */

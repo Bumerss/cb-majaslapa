@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'public_html');
 const META = require('./meta.json'), IMG = require('./images.json');
-const VER = '20261124b', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
+const VER = '20261127d', SITE = 'https://celubuvnieks.lv/', OG = SITE + 'assets/images/20200916-142039-2000x1500.jpg';
 
 const nb = s => s.replace(/(\d) (km|m²|m³|t|m|gab\.|ZS|000|308)(?![\p{L}])/gu, '$1 $2');
 const enc = p => p.split('/').map(encodeURIComponent).join('/').replace(/%28/g, '(').replace(/%29/g, ')');
@@ -34,14 +34,14 @@ const SERVICES = [
   ['Melioracijas-sistemu-buvnieciba.html', 'melio', 'Meliorācijas sistēmas', 'Upju tīrīšana, caurtekas, drenāža, kolektoru iztekas'],
   ['Autocelu-uzturesana.html', 'uzt', 'Autoceļu uzturēšana', 'Planēšana, bedru labošana, ziemas uzturēšana'],
   ['Hidrotehnisko-buvju-buvnieciba.html', 'hidro', 'Hidrotehniskās būves', 'Grāvju un dambju nostiprināšana, ugunsdzēsības baseini'],
-  ['Celu-seguma-atjaunosana.html', 'celi', 'Ceļu seguma atjaunošana', 'Atjaunojam nolietotu segumu, lai ceļš kalpo ilgāk'],
+  ['Celu-seguma-atjaunosana.html', 'seg', 'Ceļu seguma atjaunošana', 'Atjaunojam nolietotu segumu, lai ceļš kalpo ilgāk'],
   ['Karjeru-izstrade.html', 'karj', 'Karjeru izstrāde', 'Grants un smilts ieguve, sijāšana un drupināšana'],
   ['Brugesanas-darbi.html', 'brug', 'Bruģēšanas darbi', 'Ietves, piebraucamie ceļi, stāvvietas, atpūtas zonas'],
   ['Treilera-pakalpojumi.html', 'treil', 'Treilera pakalpojumi', 'Kravas līdz 30 t, platforma 9,24 m'],
   ['Transporta-un-tehnikas-nomas-pakalpojumi.html', 'noma', 'Transporta un tehnikas noma', 'Damperi, pašizgāzēji, veltņi, ekskavatori, autogreiders']
 ];
 // Detailed colour icons (assets/icons/*.svg, made by ikonas.js) replace the line icons for these keys.
-const ICON_FILE = ['melio', 'uzt', 'brug', 'celi', 'karj', 'noma', 'hidro', 'damp', 'pasiz', 'eksk', 'veltn', 'greid', 'treil'];
+const ICON_FILE = ['melio', 'uzt', 'brug', 'celi', 'seg', 'karj', 'noma', 'hidro', 'damp', 'pasiz', 'eksk', 'veltn', 'greid', 'treil'];
 const ico = i => ICON_FILE.includes(i) ? `<img class="ico ico-img" src="assets/icons/${i}.svg" alt="" width="96" height="96">` : `<svg class="ico" viewBox="0 0 48 48" aria-hidden="true">${ICON[i]}</svg>`;
 const row = ([f, i, t, d]) => `<a class="more" href="${f}">${ico(i)}<span class="more-t"><b>${t}</b><span>${d}</span></span>${arrow}</a>`;
 const rows = list => `<div class="rows">\n${list.map(row).join('\n')}\n</div>`;
@@ -221,12 +221,15 @@ equip('Pasizgazeji.html', 'Pašizgāzēji', [['fmx', 'Pašizgāzējs Volvo FMX 4
 equip('Treilera-pakalpojumi.html', 'Treilera pakalpojumi', [['treil', 'Treilera pakalpojumi līdz 30 t', ['Kopējais garums: 13,19 m', 'Kravas platforma: 9,24 m', 'Platformas platums: 2,55 m + 0,6 m (paplašinājumi)']]]);
 {
   const f = P_TEH[0], h1 = 'Transporta un tehnikas nomas pakalpojumi';
+  // Order on the overview page; icon tiles filter the groups below (assets/site.js)
+  const ORDER = ['Damperi.html', 'Kapurkezu-ekskavatori.html', 'Grunts-veltni.html', 'Pasizgazeji.html', 'Autogreiders.html', 'Treilera-pakalpojumi.html'];
   PAGES[f] = shell(f, `<div class="page">
 ${crumbs('Tehnika')}
 <h1 class="display rv">${h1}</h1>
 <p class="lead rv d1">Damperi, pašizgāzēji, grunts veltņi, kāpurķēžu ekskavatori, autogreiders un treileris. Zvaniet, lai uzzinātu pieejamību.</p>
 <div class="btns rv d2"><a class="btn btn-red" href="Kontakti.html">Jautāt pieejamību</a></div>
-${GROUPS.map(([file, t, list]) => `<section class="group"><div class="also-head"><h2 class="h3"><a href="${file}">${t}</a></h2></div>
+<div class="tiles tfilter" data-tfilter>${ORDER.map(f => TECH.find(t => t[0] === f)).map(([file, i, t, d]) => `<button class="tile" type="button" data-f="${file}" aria-pressed="false">${ico(i)}<b>${t}</b><span>${d}</span></button>`).join('')}</div>
+${ORDER.map(f => GROUPS.find(g => g[0] === f)).map(([file, t, list]) => `<section class="group" data-g="${file}"><div class="also-head"><h2 class="h3"><a href="${file}">${t}</a></h2></div>
 <div class="cards wide">
 ${list.map(([k, n, sp]) => `<article class="card zoom"><div class="card-ph">${pic(k, n, THIRD)}</div><div class="card-tx"><h3>${n}</h3>${li(sp)}</div></article>`).join('\n')}
 </div></section>`).join('\n')}
